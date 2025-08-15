@@ -4,7 +4,7 @@
   "displayName": "Py Hover Install",
   "description": "",
   "icon": "images/icon.png",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -21,7 +21,17 @@
         "command": "pyHoverInstall.install",
         "title": "Install Python package shown in hover"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Py Hover Install",
+      "properties": {
+        "pyHoverInstall.installInterpreterPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the Python interpreter to use for `pip install`. If empty the extension will prefer a .venv (if a .venv/venv folder exists in the directory) or fallback to the system Python."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
