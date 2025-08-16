@@ -1,9 +1,16 @@
-# Change Log
+# Changelog
+All notable changes to this extension are documented here.
 
-All notable changes to the "py-hover-install" extension will be documented in this file.
+This project aims to follow [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+---
 
-## [Unreleased]
+## [1.0.0]
+- Added prompt before isntalling in main python
 
-- Initial release
+## [0.0.2]
+- Fixed after venv activation updates
+
+## [0.0.1]
+- Initial release.
