@@ -90,7 +90,7 @@ export function activate(ctx: vscode.ExtensionContext) {
 			}
 
 			const quotedPython = `"${pythonExec}"`;
-			const cmd = `${quotedPython} -m pip install ${pipName}`;
+			const cmd = `& ${quotedPython} -m pip install ${pipName}`;
 
 			const shellExec = new vscode.ShellExecution(cmd, {
 				cwd: workspaceFolder ? workspaceFolder.uri.fsPath : undefined
