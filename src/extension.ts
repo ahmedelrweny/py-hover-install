@@ -89,21 +89,22 @@ export function activate(ctx: vscode.ExtensionContext) {
 				}
 			}
 
-			const quotedPython = `"${pythonExec}"`;
-			const cmd = `& ${quotedPython} -m pip install ${pipName}`;
-
-			const shellExec = new vscode.ShellExecution(cmd, {
-				cwd: workspaceFolder ? workspaceFolder.uri.fsPath : undefined
-			});
+			const execExec = new vscode.ProcessExecution(
+				pythonExec,
+				['-m', 'pip', 'install', pipName],
+				{
+					cwd: workspaceFolder ? workspaceFolder.uri.fsPath : undefined
+				}
+			);
 
 			const taskName = workspaceFolder ? `${workspaceFolder.name}: pip-${pipName}` : `pip-${pipName}`;
 
 			const task = new vscode.Task(
-				{ type: 'shell', task: 'pip-install' },
+				{ type: 'process', task: 'pip-install' },
 				vscode.TaskScope.Workspace,
 				taskName,
 				'pip-installer',
-				shellExec
+				execExec
 			);
 
 			vscode.tasks.executeTask(task);
